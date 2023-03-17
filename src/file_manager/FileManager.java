@@ -24,14 +24,14 @@ import javax.crypto.spec.PBEKeySpec;
 public class FileManager {
 
 	private static final String PBE = "PBEWithHmacSHA256AndAES_128";
-	private File file;
+	//private File file;
 	private List<String> listaContas;
 	private Cipher cipher;
 	private SecretKey key;
 	private byte[] params;
 	
-	public FileManager(String filePath, String serverPassword) {
-		this.file = new File(filePath);
+	public FileManager(String serverPassword) {
+		//this.file = new File(filePath);
 		this.listaContas = new ArrayList<>();
 		byte[] salt = { (byte) 0xc9, (byte) 0x36, (byte) 0x78, (byte) 0x99, (byte) 0x52, (byte) 0x3e, (byte) 0xea, (byte) 0xf2 };
 	    PBEKeySpec keySpec = new PBEKeySpec(serverPassword.toCharArray(), salt, 20); // pass, salt, iterations
@@ -43,6 +43,7 @@ public class FileManager {
 	    }
 	}
 	
+	/*
 	public void createFile(){
 		try {
 			if (file.createNewFile()) {
@@ -54,7 +55,7 @@ public class FileManager {
 			System.out.println("An error occurred.");
 			e.printStackTrace();
 		  }
-	}
+	}*/
 	
 	public void appendCount(String result) {
 		listaContas.add(result);

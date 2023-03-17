@@ -19,12 +19,12 @@ public class Server
 
 
 	// constructor with port
-	public Server(int port, String filePath)
+	public Server(int port)
 	{
 		// starts server and waits for a connection
 		try
 		{
-			fileManager = new FileManager(filePath, "caguei");
+			fileManager = new FileManager("caguei");
 			fileManager.deCipherCounts();
 			
 			
@@ -84,6 +84,6 @@ public class Server
 
 	public static void main(String args[])
 	{
-		new Server(5000, args[0]);
+		new Server(5000);
 	}
 }
